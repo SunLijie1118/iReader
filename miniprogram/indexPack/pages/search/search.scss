@@ -1,0 +1,23 @@
+/* indexPack/pages/search.wxss */
+.hot-search {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 24rpx;
+}
+
+.tags {
+    font-size: 28rpx;
+    padding: 8rpx 24rpx;
+    background: #f0f1f3;
+    border-radius: 20rpx;
+    margin: 24rpx 24rpx 0rpx 24rpx;
+
+    image {
+        width: 28rpx;
+        height: 28rpx;
+    }
+
+    .hot {
+        color: #FF3B30;
+    }
+}

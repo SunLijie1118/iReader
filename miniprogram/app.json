@@ -1,0 +1,67 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/discovery/discovery",
+        "pages/my/my"
+    ],
+    "subPackages": [
+        {
+            "root": "discoveryPack",
+            "name": "discovery",
+            "pages": []
+        },
+        {
+            "root": "myPack",
+            "name": "my",
+            "pages": []
+        },
+        {
+            "root": "indexPack",
+            "name": "index",
+            "pages": [
+                "pages/search/search",
+                "pages/history/history",
+                "pages/intro/intro",
+                "pages/list/list"
+            ]
+        }
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "iReader",
+        "navigationBarTextStyle": "black",
+        "initialRenderingCache": "static"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "image/icons/index.png",
+                "selectedIconPath": "image/icons/index-selected.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/discovery/discovery",
+                "iconPath": "image/icons/discovery.png",
+                "selectedIconPath": "image/icons/discovery-selected.png",
+                "text": "发现"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "iconPath": "image/icons/my.png",
+                "selectedIconPath": "image/icons/my-selected.png",
+                "text": "我的"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "resizable": true,
+    "frameset": true,
+    "useExtendedLib": {
+        "weui": true
+    },
+    "lazyCodeLoading": "requiredComponents"
+}

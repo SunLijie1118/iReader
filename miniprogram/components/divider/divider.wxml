@@ -1,0 +1,4 @@
+<!--components/divider/divider.wxml-->
+<view class="divider">
+    <text>{{text}}</text>
+</view>

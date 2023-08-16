@@ -1,0 +1,30 @@
+/* components/divider/divider.wxss */
+.divider {
+    color: #aaa;
+    font-size: 26rpx;
+    display: flex;
+    white-space: nowrap;
+    margin: 0 1rem;
+
+    text {
+        margin: 0 1rem;
+    }
+}
+
+.divider::before {
+    content: '';
+    position: relative;
+    top: 50%;
+    width: 50%;
+    border-top: 1rpx solid #dfe0e1;
+    transform: translateY(50%);
+}
+
+.divider::after {
+    content: '';
+    position: relative;
+    top: 50%;
+    width: 50%;
+    border-top: 1rpx solid #dfe0e1;
+    transform: translateY(50%);
+}

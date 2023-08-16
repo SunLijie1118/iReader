@@ -1,0 +1,20 @@
+/* components/tab/tab.wxss */
+.tabs {
+    display: flex;
+    align-items: center;
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+
+    text {
+        display: inline-block;
+        padding: 10rpx;
+        border-bottom: 5rpx solid transparent;
+    }
+
+    .active {
+        border-color: #06b92e;
+    }
+}

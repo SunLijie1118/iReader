@@ -1,0 +1,51 @@
+/* components/list/list.wxss */
+.book-list {
+    .row {
+        margin-bottom: 30rpx;
+        padding-bottom: 30rpx;
+        display: flex;
+
+        &:last-of-type {
+            padding-bottom: 0;
+        }
+    }
+
+    .col-3 {
+        box-sizing: border-box;
+    }
+
+    .col-9 {
+        box-sizing: border-box;
+        padding-left: 30rpx;
+
+        .name {
+            font-size: 36rpx;
+            margin-bottom: 20rpx;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .desc {
+            font-size: 26rpx;
+            line-height: 2;
+            text-indent: 2em;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            color: rgba(0, 0, 0, 0.65);
+        }
+    }
+
+    .cover {
+        width: 170rpx;
+        height: 220rpx;
+        border-radius: 6rpx;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+}

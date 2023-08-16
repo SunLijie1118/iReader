@@ -1,0 +1,40 @@
+<!--indexPack/pages/search.wxml-->
+<searchbar cancel="false" value="{{value}}" focus="true" search="{{search}}" bindselectresult="bindselectresult" bindclear="bindclear"></searchbar>
+<block wx:if="{{historyTags.length > 0}}">
+    <view class="panel">
+        <view class="panel-heading">
+            <text class="panel-title">搜索历史</text>
+        </view>
+    </view>
+    <view class="hot-search">
+        <view wx:for="{{historyTags}}" wx:for-index="index" wx:for-item="item" wx:key="index" class="tags" bindtap="tapHotTags" data-tag="{{item}}">
+            <text>{{item}}</text>
+        </view>
+    </view>
+</block>
+<block wx:if="{{hotTags.length > 0}}">
+    <view class="panel">
+        <view class="panel-heading">
+            <text class="panel-title">热门搜索</text>
+        </view>
+    </view>
+    <view class="hot-search">
+        <view wx:for="{{hotTags}}" wx:for-index="index" wx:for-item="item" wx:key="id" class="tags" bindtap="tapHotTags" data-tag="{{item.value}}">
+            <image src="../../image/hot.png" wx:if="{{index < 3}}"></image>
+            <text class="{{index < 3? 'hot':''}}"> {{item.value}}</text>
+        </view>
+    </view>
+</block>
+
+<block wx:if="{{value}}">
+    <tab tabs="{{tabs}}" bind:tabClick="tabClick"></tab>
+    <block wx:if="{{type==='book'}}">
+        <empty wx:if="{{books.length === 0}}"></empty>
+    </block>
+    <block wx:if="{{type==='doc'}}">
+        <empty wx:if="{{documents.length === 0}}"></empty>
+    </block>
+</block>
+<block wx:if="{{ books.length === 0 && documents.length === 0 && value }}">
+
+</block>

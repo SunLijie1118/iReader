@@ -1,0 +1,57 @@
+<!--index.wxml-->
+<view class="container">
+    <!-- 上面总览信息 -->
+    <view class="top">
+        <image src="../../image/index/back.png" class="back-image"></image>
+        <view class="top-content">
+            <view class="top-top">
+                <text class="name">{{appName}}</text>
+                <view wx:for="{{settings}}" wx:key="item.id" class="setting {{ item.type === 'history' ? 'setting-spec' : '' }}" bindtap="handleSetting" data-type="{{item.type}}">
+                    <image src="../../image/index/{{item.type}}.svg"></image>
+                    <text>{{item.title}}</text>
+                </view>
+            </view>
+            <view class="top-bottom">
+                <text class="font-lv4 read">今日已读</text>
+                <text class="font-lv0 tags">{{hours}} </text>
+                <text class="font-lv3">小时</text>
+                <text class="font-lv0 tags">{{minutes}} </text>
+                <text class="font-lv3">分钟</text>
+                <text class="font-lv3 pull-right color-link">去签到</text>
+            </view>
+        </view>
+    </view>
+    <!-- 中间推荐的信息 -->
+    <view class="panel">
+        <view class="panel-heading">
+            <text class="panel-title">最新推荐</text>
+        </view>
+        <scroll-view scroll-x="true" class="center-scroll">
+            <view wx:for="{{recommendBooks}}" wx:key='index' wx:for-item="book" class="book-container">
+                <navigator url="/indexPack/pages/intro/intro?id={{book.book_id}}">
+                    <image lazy-load="true" class="book-cover" src="{{book.cover}}" mode="aspectFit" />
+                    <text class="book-name">{{book.book_name}}</text>
+                </navigator>
+            </view>
+        </scroll-view>
+    </view>
+
+    <!-- 最下面是具体的图书信息 -->
+    <view class="bottom">
+        <block wx:for="{{categoryBooks}}" wx:for-item="category" wx:key="index">
+            <view wx:if="{{ category.books.length>0 }}" class="panel category">
+                <view class="panel-heading">
+                    <view class="panel-title">
+                        {{category.title}}
+                        <navigator url="/indexPack/pages/list/list?cid={{category.id}}" class="pull-right color-link font-lv3">更多</navigator>
+                    </view>
+                </view>
+                <view class="panel-body">
+                    <list books="{{category.books}}"></list>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
+<actionSheet bindactiontap="moreBtnClick" mask="{{ mask }}" show-cancel="{{ showCancel}}" show="{{ show }}" actions="{{ groups }}">
+</actionSheet>

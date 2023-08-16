@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "actionSheet": "weui-miniprogram/actionsheet/actionsheet",
+        "list": "/components/list/list"
+    }
+}
