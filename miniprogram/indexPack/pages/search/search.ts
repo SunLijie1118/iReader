@@ -1,5 +1,5 @@
 // indexPack/pages/search.ts
-import { HOT_TAGS } from '../../../utils/config';
+import { HOT_TAGS, SEARCH_BOOKS } from '../../../utils/config';
 import { isEmpty } from '../../../utils/util';
 
 interface searchPageData {
@@ -7,13 +7,16 @@ interface searchPageData {
     historyTags: string[];
     hotTags: { id: number, value: string }[];
     books: any[];
+    booksDivider: boolean;
     documents: any[],
+    documentsDivider: boolean;
     tabs: Array<{ title: string; value: string }>,
     type: '' | 'doc' | 'book'
 }
 
 interface searchPageOptions {
     onLoad: () => void;
+    onReachBottom: () => void;
     search: (value: string) => Promise<{ text: string, value: number }[]>;
     bindselectresult: (event: any) => void;
     bindclear: (event: any) => void;
@@ -32,7 +35,9 @@ Page<searchPageData, searchPageOptions>({
         historyTags: [],
         hotTags: [],
         books: [],
+        booksDivider: false,
         documents: [],
+        documentsDivider: false,
         tabs: [{
             title: "书籍",
             value: "book"
@@ -54,6 +59,32 @@ Page<searchPageData, searchPageOptions>({
         this.setData({
             hotTags: HOT_TAGS
         });
+    },
+    onReachBottom() {
+        if (this.data.type === 'book') {
+            if (this.data.booksDivider) {
+                return;
+            }
+            wx.showLoading({
+                title: '正在加载...',
+            });
+            setTimeout(() => {
+                // 数据刷新完成后，隐藏加载提示
+                wx.hideLoading();
+                if (this.data.books.length < 20) {
+                    this.setData({
+                        books: this.data.books.concat([...SEARCH_BOOKS]),
+                        booksDivider: false
+                    });
+                } else {
+                    this.setData({
+                        booksDivider: true
+                    });
+                }
+            }, 500);
+        } else if (this.data.type === 'doc') {
+
+        }
     },
 
     search(value: string) {
@@ -103,9 +134,17 @@ Page<searchPageData, searchPageOptions>({
     tabClick(event: any) {
         const type: 'book' | 'doc' = event.detail.value;
         this.setData({
+            booksDivider: false,
+            documentsDivider: false
+        });
+        this.setData({
             type: type
         });
         if (type === 'book') {
+            this.setData({
+                books: [...SEARCH_BOOKS]
+            });
+        } else if (type === 'doc') {
 
         }
     }

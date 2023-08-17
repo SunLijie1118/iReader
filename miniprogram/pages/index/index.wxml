@@ -12,12 +12,14 @@
                 </view>
             </view>
             <view class="top-bottom">
-                <text class="font-lv4 read">今日已读</text>
-                <text class="font-lv0 tags">{{hours}} </text>
-                <text class="font-lv3">小时</text>
-                <text class="font-lv0 tags">{{minutes}} </text>
-                <text class="font-lv3">分钟</text>
-                <text class="font-lv3 pull-right color-link">去签到</text>
+                <view>
+                    <text class="font-lv4 read">今日已读</text>
+                    <text class="font-lv0 tags">{{hours}} </text>
+                    <text class="font-lv3">小时</text>
+                    <text class="font-lv0 tags">{{minutes}} </text>
+                    <text class="font-lv3">分钟</text>
+                </view>
+                <text class="font-lv2 color-link">去签到</text>
             </view>
         </view>
     </view>

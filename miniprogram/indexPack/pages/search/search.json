@@ -1,8 +1,10 @@
 {
+    "enablePullDownRefresh": true,
     "usingComponents": {
         "searchbar": "weui-miniprogram/searchbar/searchbar",
         "list": "/components/list/list",
         "tab": "/components/tab/tab",
-        "empty": "/components/empty/empty"
+        "empty": "/components/empty/empty",
+        "divider": "/components/divider/divider"
     }
 }

@@ -1,13 +1,10 @@
-// components/divider/divider.ts
+// components/doclist/doclist.ts
 Component({
     /**
      * 组件的属性列表
      */
     properties: {
-        text: {
-            type: String,
-            value: '没有更多了'
-        }
+
     },
 
     /**

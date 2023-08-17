@@ -1,14 +1,14 @@
 <!--components/list/list.wxml-->
 <view wx:if="{{books.length>0}}" class="book-list">
     <block wx:for="{{books}}" wx:key="index" wx:for-item="book">
-        <view class="row">
-            <navigator url="/pages/intro/intro?id={{book.book_id}}" class="col-3">
+        <navigator url="/indexPack/pages/intro/intro?id={{book.book_id}}" class="row">
+            <view class="col-3">
                 <image lazy-load="true" class="cover" src="{{book.cover}}" mode="aspectFit" />
-            </navigator>
-            <navigator url="/pages/intro/intro?id={{book.book_id}}" class="col-9">
+            </view>
+            <view class="col-9">
                 <view class="name">{{book.book_name}}</view>
                 <view class="desc">{{book.description ? book.description : book.book_name}}</view>
-            </navigator>
-        </view>
+            </view>
+        </navigator>
     </block>
 </view>

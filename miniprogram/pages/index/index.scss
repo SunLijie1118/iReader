@@ -57,13 +57,16 @@
             }
 
             .top-bottom {
-                padding: 0rpx 40rpx;
+                padding: 0rpx 80rpx 0rpx 40rpx;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
 
                 .read {
-                    width: 2em;
+                    width: 2rem;
                     display: inline-block;
                     line-height: 1;
-                    padding-right: 20rpx;
+                    padding-right: 0rpx;
                 }
 
                 .tags {
